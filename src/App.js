@@ -30,6 +30,62 @@ const initialColumns = {
 
 
 export default function App() {
+  const [tasks, setTasks] = useState(initialTasks);
+  const [columns, setColumns] = useState(initialColumns);
+
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const startColumn = columns[source.droppableId];
+    const endColumn = columns[destination.droppableId];
+
+    if (startColumn === endColumn) {
+      const newTaskIds = Array.from(startColumn.taskIds);
+      newTaskIds.splice(source.index, 1);
+      newTaskIds.splice(destination.index, 0, draggableId);
+
+      const newColumn = {
+        ...startColumn,
+        taskIds: newTaskIds,
+      };
+
+      setColumns({
+        ...columns,
+        [newColumn.id]: newColumn,
+      });
+    } else {
+      const startTaskIds = Array.from(startColumn.taskIds);
+      startTaskIds.splice(source.index, 1);
+      const newStartColumn = {
+        ...startColumn,
+        taskIds: startTaskIds,
+      };
+
+      const endTaskIds = Array.from(endColumn.taskIds);
+      endTaskIds.splice(destination.index, 0, draggableId);
+      const newEndColumn = {
+        ...endColumn,
+        taskIds: endTaskIds,
+      };
+
+      setColumns({
+        ...columns,
+        [newStartColumn.id]: newStartColumn,
+        [newEndColumn.id]: newEndColumn,
+      });
+    }
+  };
   return (
     <Authenticator>
       {({ signOut, user }) => (
