@@ -2,11 +2,14 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Amplify } from 'aws-amplify';
+import { Auth } from 'aws-amplify'
 
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
 import awsExports from './aws-exports';
+import CustomSignIn from './components/CustomSigIn';
+import CustomSignOut from './components/CustomSignOut';
 Amplify.configure(awsExports);
 
 const initialTasks = [
@@ -87,9 +90,9 @@ export default function App() {
     }
   };
   return (
-    <Authenticator>
-      {({ signOut, user }) => (
-        <main>
+    <>
+    <CustomSignIn/>
+    <CustomSignOut />
           <DragDropContext onDragEnd={onDragEnd}>
             {Object.values(columns).map((column) => (
               <Droppable droppableId={column.id} key={column.id}>
@@ -137,9 +140,6 @@ export default function App() {
               </Droppable>
             ))}
           </DragDropContext>
-          <button onClick={signOut}>Sign out</button>
-        </main>
-      )}
-    </Authenticator>
+          </>
   );
 }
