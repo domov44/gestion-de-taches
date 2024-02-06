@@ -1,36 +1,40 @@
 // UserContext.js
 import { createContext, useContext, useState, useEffect } from 'react';
-import { getCurrentUser } from 'aws-amplify/auth';  // Assurez-vous d'ajuster l'importation selon votre configuration Amplify
+import { getCurrentUser } from 'aws-amplify/auth';
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    const [isLoggedIn, setLoggedIn] = useState(null); // Utilisez null au lieu de false au départ
+    const [isLoggedIn, setLoggedIn] = useState(null);
+    const [userData, setUserData] = useState(null); // Ajouter un state pour stocker les données utilisateur
 
     useEffect(() => {
-        // Vérifier l'état de connexion au chargement initial
         const checkAuthState = async () => {
             try {
-                await getCurrentUser();
+                const user = await getCurrentUser();
                 setLoggedIn(true);
+                setUserData(user); // Stocker les données utilisateur lorsqu'il est connecté
             } catch (error) {
                 setLoggedIn(false);
+                setUserData(null); // Réinitialiser les données utilisateur si la connexion échoue
             }
         };
 
         checkAuthState();
-    }, []);  // Assurez-vous de ne l'exécuter qu'une seule fois au chargement initial
+    }, []);
 
     const login = () => setLoggedIn(true);
-    const logout = () => setLoggedIn(false);
+    const logout = () => {
+        setLoggedIn(false);
+        setUserData(null); // Réinitialiser les données utilisateur lors de la déconnexion
+    };
 
     if (isLoggedIn === null) {
-        // En cours de vérification de l'état de connexion, peut afficher une charge ou un écran de connexion si nécessaire
         return <div>Loading...</div>;
     }
 
     return (
-      <UserContext.Provider value={{ isLoggedIn, login, logout }}>
+      <UserContext.Provider value={{ isLoggedIn, login, logout, userData }}> {/* Fournir les données utilisateur */}
           {children}
       </UserContext.Provider>
     );
