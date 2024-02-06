@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import Home from './pages/private/Home';
 import Connect from './pages/public/Connect';
 import Profil from './pages/private/Profil';
+import Update_profil from './pages/private/Update_profil';
 import ProtectedRoutes from "./hooks/ProtectedRoutes";
 
 export default function App() {
@@ -19,11 +20,14 @@ export default function App() {
                   <Profil/>
               </ProtectedRoutes>
           }/>
+            <Route path="/update-profil" element={
+                <ProtectedRoutes>
+                    <Update_profil/>
+                </ProtectedRoutes>
+            }/>
           <Route path="/connect" element={<Connect/>}/>
       </Routes>
     );
 }
 
-//TODO: recuperer les elements du user et les afficher en profil
-//TODO: creer un user dans la db avec une requete?
-//TODO: ajouter des choses a un user dans la db avec une requete?
+//TODO: modifier des choses a un user dans la db
