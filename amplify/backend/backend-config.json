@@ -51,11 +51,6 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
-    },
-    "updateProfil": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
     }
   },
   "parameters": {
@@ -72,22 +67,6 @@
         {
           "category": "function",
           "resourceName": "gestiondetaches777f3b0f"
-        }
-      ]
-    },
-    "AMPLIFY_function_updateProfil_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "updateProfil"
-        }
-      ]
-    },
-    "AMPLIFY_function_updateProfil_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "updateProfil"
         }
       ]
     }
