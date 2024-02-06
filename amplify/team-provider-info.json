@@ -20,10 +20,6 @@
         "gestiondetaches777f3b0f": {
           "deploymentBucketName": "amplify-amplifyb95333e9d3204-staging-121144-deployment",
           "s3Key": "amplify-builds/gestiondetaches777f3b0f-30446f39397135626b66-build.zip"
-        },
-        "updateProfil": {
-          "deploymentBucketName": "amplify-amplifyb95333e9d3204-staging-121144-deployment",
-          "s3Key": "amplify-builds/updateProfil-6b544a52333955454d64-build.zip"
         }
       },
       "api": {
