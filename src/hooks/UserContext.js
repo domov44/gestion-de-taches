@@ -1,4 +1,3 @@
-// UserContext.js
 import { createContext, useContext, useState, useEffect } from 'react';
 import { getCurrentUser, fetchUserAttributes } from 'aws-amplify/auth';
 
@@ -6,13 +5,13 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [isLoggedIn, setLoggedIn] = useState(null);
-    const [user, setUser] = useState(null); // Ajoutez un état pour stocker les informations de l'utilisateur
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         const checkAuthState = async () => {
             try {
                 const currentUser = await fetchUserAttributes();
-                setUser(currentUser); // Stockez les informations de l'utilisateur une fois connecté
+                setUser(currentUser); 
                 setLoggedIn(true);
             } catch (error) {
                 setLoggedIn(false);
@@ -24,8 +23,12 @@ export const UserProvider = ({ children }) => {
 
     const login = () => setLoggedIn(true);
     const logout = () => {
-        setUser(null); // Supprimez les informations de l'utilisateur lors de la déconnexion
+        setUser(null); 
         setLoggedIn(false);
+    };
+
+    const updateUser = (newUserData) => {
+        setUser(newUserData);
     };
 
     if (isLoggedIn === null) {
@@ -33,7 +36,7 @@ export const UserProvider = ({ children }) => {
     }
 
     return (
-      <UserContext.Provider value={{ isLoggedIn, user, login, logout }}> {/* Fournissez les données de l'utilisateur */}
+      <UserContext.Provider value={{ isLoggedIn, user, login, logout, updateUser }}>
           {children}
       </UserContext.Provider>
     );

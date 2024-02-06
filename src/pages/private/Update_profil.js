@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import {useUser} from "../../hooks/UserContext";
 import {updateUserAttributes} from 'aws-amplify/auth';
 
-
 export default function Update_profil() {
-    const {user} = useUser();
+    const { user, updateUser } = useUser();
     const [email, setEmail] = useState(user.email);
     const [name, setName] = useState(user.name);
     const [phone, setPhoneNumber] = useState(user.phone_number);
@@ -31,6 +30,12 @@ export default function Update_profil() {
             },
         })
           .then((result) => {
+              updateUser({
+                ...user,
+                email: email,
+                name: name,
+                phone_number: phone
+              });
               console.log(result);
           })
           .catch((error) => {
@@ -61,7 +66,3 @@ export default function Update_profil() {
       </div>
     )
 }
-
-//const Container = styled.div`
-
-//`;
