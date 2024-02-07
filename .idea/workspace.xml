@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="46c3a82d-fa6f-4ffb-b10f-815501cc5f64" name="Changes" comment="[ADD]">
+      <change beforePath="$PROJECT_DIR$/src/hooks/UserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/UserContext.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="staging" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2bwgHAbzS6QJaIjKGq1dXMwZTga" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/Users/eddie/Delivery/Stage_reltim/2st_repo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.spelling",
+    "ts.external.directory.path": "/Users/eddie/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="1" Folder0="$USER_HOME$/Documents" CustomDictionaries="1" CustomDictionary0="$USER_HOME$/Documents/fr-with-unaccentued-words.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46c3a82d-fa6f-4ffb-b10f-815501cc5f64" name="Changes" comment="" />
+      <created>1707131465266</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707131465266</updated>
+      <workItem from="1707131466881" duration="19247000" />
+      <workItem from="1707229919059" duration="20000" />
+      <workItem from="1707301785372" duration="8799000" />
+    </task>
+    <task id="LOCAL-00001" summary="[ADD] changes react router dom">
+      <option name="closed" value="true" />
+      <created>1707142060594</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707142060594</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[ADD] middleware handle and protect pages with auth">
+      <option name="closed" value="true" />
+      <created>1707144629199</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707144629199</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[ADD] Profil page and some handling">
+      <option name="closed" value="true" />
+      <created>1707227183047</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707227183047</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[ADD] Update user name and cellphone successfully">
+      <option name="closed" value="true" />
+      <created>1707233375023</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707233375023</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[ADD] styled_componened">
+      <option name="closed" value="true" />
+      <created>1707312239598</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707312239598</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[ADD]">
+      <option name="closed" value="true" />
+      <created>1707312882890</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707312882890</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[ADD] changes react router dom" />
+    <MESSAGE value="[ADD] middleware handle and protect pages with auth" />
+    <MESSAGE value="[ADD] Profil page and some handling" />
+    <MESSAGE value="[ADD] Update_profil page front" />
+    <MESSAGE value="[ADD] Update user name and cellphone successfully" />
+    <MESSAGE value="[ADD] styled_componened" />
+    <MESSAGE value="[ADD]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ADD]" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

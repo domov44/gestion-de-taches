@@ -1,11 +1,14 @@
 // CustomSignIn.js
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { signIn, getCurrentUser, fetchUserAttributes } from 'aws-amplify/auth';
-import { useUser } from '../hooks/UserContext';
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {signIn, getCurrentUser, fetchUserAttributes} from 'aws-amplify/auth';
+import {useUser} from '../hooks/UserContext';
+import Form from './Form';
+import InputText from './InputText';
+import Button from './Button';
 
 function CustomSignIn() {
-    const { login } = useUser();
+    const {login} = useUser();
     const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
@@ -13,8 +16,8 @@ function CustomSignIn() {
 
     const handleSignIn = async () => {
         try {
-            const { isSignedIn, signInStep } = await signIn({ username, password });
-            console.log('Réponse de l\'API après connexion :', { isSignedIn, signInStep });
+            const {isSignedIn, signInStep} = await signIn({username, password});
+            console.log('Réponse de l\'API après connexion :', {isSignedIn, signInStep});
 
             if (isSignedIn) {
                 console.log('Connexion réussie !');
@@ -35,7 +38,7 @@ function CustomSignIn() {
 
     async function currentAuthenticatedUser() {
         try {
-            const { username, userId, signInDetails } = await getCurrentUser();
+            const {username, userId, signInDetails} = await getCurrentUser();
             console.log(`Nom d'utilisateur : ${username}`);
             // Récupérer les attributs de l'utilisateur, y compris l'email
             const userAttributes = await fetchUserAttributes();
@@ -53,18 +56,15 @@ function CustomSignIn() {
     }
 
     return (
-      <div>
+      <Form>
+
           <h1>Connexion</h1>
-          <form>
-              <label>Nom d'utilisateur :</label>
-              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-              <br />
-              <label>Mot de passe :</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-              <br />
-              <button type="button" onClick={handleSignIn}>Se connecter</button>
-          </form>
-      </div>
+          <InputText type={'text'} label={'Nom d\'utilisateur'} value={username}
+                     onChange={(e) => setUsername(e.target.value)} required/>
+          <InputText type={'password'} label={'Mot de passe'} value={password}
+                     onChange={(e) => setPassword(e.target.value)} required/>
+          <Button type="button" onClick={handleSignIn}>Se connecter</Button>
+      </Form>
     );
 }
 
