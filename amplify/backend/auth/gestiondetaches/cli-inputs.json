@@ -33,7 +33,7 @@
     "resourceName": "gestiondetaches",
     "sharedId": "e9e25375",
     "serviceName": "Cognito",
-    "useDefault": "manual",
+    "useDefault": "default",
     "authRoleArn": {
       "Fn::GetAtt": [
         "AuthRole",
@@ -51,8 +51,8 @@
     "userPoolGroups": false,
     "userPoolGroupList": [],
     "adminQueries": false,
-    "thirdPartyAuth": false,
-    "authProviders": [],
-    "hostedUI": false
+    "hostedUI": false,
+    "useEnabledMfas": true,
+    "authProviders": []
   }
 }
