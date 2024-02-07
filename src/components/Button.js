@@ -12,6 +12,8 @@ const ButtonContainer = styled.button`
     font-size: 20px;
     background: #0909ce;
     color: white;
+    cursor: pointer;
+    line-height: 1;
 `;
 export default function Button({children, type, onClick}) {
     return (
