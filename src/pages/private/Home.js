@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import React, { useState } from 'react';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import {Link} from 'react-router-dom';
+import CustomSignOut from '../../components/CustomSignOut';
 //import styled from "styled-components";
 
 
 const initialTasks = [
-    {id: 'task-1', content: 'Tâche 1'},
-    {id: 'task-2', content: 'Tâche 2'},
-    {id: 'task-3', content: 'Tâche 3'},
+    { id: 'task-1', content: 'Tâche 1' },
+    { id: 'task-2', content: 'Tâche 2' },
+    { id: 'task-3', content: 'Tâche 3' },
 ];
 
 const initialColumns = {
@@ -27,15 +29,15 @@ export default function Home() {
     const [columns, setColumns] = useState(initialColumns);
 
     const onDragEnd = (result) => {
-        const {destination, source, draggableId} = result;
+        const { destination, source, draggableId } = result;
 
         if (!destination) {
             return;
         }
 
         if (
-          destination.droppableId === source.droppableId &&
-          destination.index === source.index
+            destination.droppableId === source.droppableId &&
+            destination.index === source.index
         ) {
             return;
         }
@@ -82,53 +84,57 @@ export default function Home() {
 
 
     return (
-      <DragDropContext onDragEnd={onDragEnd}>
-          {Object.values(columns).map((column) => (
-            <Droppable droppableId={column.id} key={column.id}>
-                {(provided) => (
-                  <div
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}
-                    style={{
-                        background: '#f5f5f5',
-                        padding: 10,
-                        margin: 10,
-                        width: 250,
-                    }}
-                  >
-                      <h2>{column.title}</h2>
-                      {column.taskIds.map((taskId, index) => (
-                        <Draggable
-                          draggableId={taskId}
-                          index={index}
-                          key={taskId}
-                        >
-                            {(provided) => (
-                              <div
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
+        <>
+            <DragDropContext onDragEnd={onDragEnd}>
+                {Object.values(columns).map((column) => (
+                    <Droppable droppableId={column.id} key={column.id}>
+                        {(provided) => (
+                            <div
+                                {...provided.droppableProps}
                                 ref={provided.innerRef}
                                 style={{
-                                    userSelect: 'none',
-                                    padding: 16,
-                                    margin: '0 0 8px 0',
-                                    backgroundColor: 'white',
-                                    border: '1px solid #ddd',
-                                    borderRadius: '4px',
-                                    ...provided.draggableProps.style,
+                                    background: '#f5f5f5',
+                                    padding: 10,
+                                    margin: 10,
+                                    width: 250,
                                 }}
-                              >
-                                  {tasks.find((task) => task.id === taskId).content}
-                              </div>
-                            )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
-                  </div>
-                )}
-            </Droppable>
-          ))}
-      </DragDropContext>
+                            >
+                                <h2>{column.title}</h2>
+                                {column.taskIds.map((taskId, index) => (
+                                    <Draggable
+                                        draggableId={taskId}
+                                        index={index}
+                                        key={taskId}
+                                    >
+                                        {(provided) => (
+                                            <div
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                ref={provided.innerRef}
+                                                style={{
+                                                    userSelect: 'none',
+                                                    padding: 16,
+                                                    margin: '0 0 8px 0',
+                                                    backgroundColor: 'white',
+                                                    border: '1px solid #ddd',
+                                                    borderRadius: '4px',
+                                                    ...provided.draggableProps.style,
+                                                }}
+                                            >
+                                                {tasks.find((task) => task.id === taskId).content}
+                                            </div>
+                                        )}
+                                    </Draggable>
+                                ))}
+                                {provided.placeholder}
+                            </div>
+                        )}
+                    </Droppable>
+                ))}
+            </DragDropContext>
+            <Link to="/profil">Modifier le profil</Link>
+            <CustomSignOut />
+        </>
     )
 }
 
