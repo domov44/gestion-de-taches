@@ -16,14 +16,14 @@
       "function": {
         "gestiondetachesf470b91b": {
           "deploymentBucketName": "amplify-amplify55ae4ead68524-staging-90731-deployment",
-          "s3Key": "amplify-builds/gestiondetachesf470b91b-6e2f64506e4166516c55-build.zip"
+          "s3Key": "amplify-builds/gestiondetachesf470b91b-64747866447462412b37-build.zip"
         }
-      },
-      "auth": {
-        "gestiondetaches": {}
       },
       "api": {
         "apireltim": {}
+      },
+      "auth": {
+        "gestiondetaches91822dad": {}
       }
     }
   }
