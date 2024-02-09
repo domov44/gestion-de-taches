@@ -54,5 +54,40 @@
         "apireltim": {}
       }
     }
+  },
+  "production": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-gestiondetaches-production-125926-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381491874606:role/amplify-gestiondetaches-production-125926-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381491874606:role/amplify-gestiondetaches-production-125926-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-gestiondetaches-production-125926-deployment",
+      "UnauthRoleName": "amplify-gestiondetaches-production-125926-unauthRole",
+      "StackName": "amplify-gestiondetaches-production-125926",
+      "StackId": "arn:aws:cloudformation:eu-west-3:381491874606:stack/amplify-gestiondetaches-production-125926/ad3c8e60-c742-11ee-ab91-0ef27a50bb76",
+      "AmplifyAppId": "d2zeq5mrlz34ay",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-gestiondetaches-production-125926-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "gestiondetaches91822dad": {}
+      },
+      "function": {
+        "gestiondetachesf470b91b": {
+          "deploymentBucketName": "amplify-gestiondetaches-production-125926-deployment",
+          "s3Key": "amplify-builds/gestiondetachesf470b91b-64747866447462412b37-build.zip"
+        }
+      },
+      "api": {
+        "apireltim": {}
+      }
+    }
+  },
+  "fabc": {
+    "categories": {
+      "function": {
+        "gestiondetachesf470b91b": {}
+      }
+    }
   }
 }
