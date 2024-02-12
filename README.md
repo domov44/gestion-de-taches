@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+## Application AWS Amplify
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<br />
+  <h3 align="center">Amplify</h3>
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<details>
+  <summary>Sommaires</summary>
+  <ol>
+    <li>
+      <a href="#a-propos-du-projet">A propos du projet</a>
+    </li>
+    <li>
+      <a href="#commencer">Commencer</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#lancement">Lancer le projet</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## A propos du projet
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ce projet est un bac à sable Amplify, il consiste à découvrir cette technologie en faisant marcher un projet basique necessitant une authentification.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p align="right">(<a href="#readme-top">revenir en haut</a>)</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Commencer
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Pour commencer le projet vous pouvez suivre les instructions qui vont suivre.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Installation
 
-## Learn More
+Pour commencer vous avez besoin d'installer le projet c'est assez simple.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Vous devez avoir un compte AWS, si ce n'est pas le cas créez le via cette url
+   ```sh
+   https://aws.amazon.com/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clonez le repo git
+   ```sh
+   git clone https://github.com/domov44/gestion-de-taches
+   ```
+2. Ensuite installez le packages npm : 
+    ```sh
+   npm install
+   ```
 
-### Code Splitting
+3. [optionnel] Il se peut que aws-amplify ne s'installe pas correctement, réinstallez-le à la main si dans la phase de lancement vous avez des erreurs de ce type :
+"ERROR in ./src/components/CustomSigIn.js 27:16-22 export 'signIn' (imported as 'signIn') was not found in 'aws-amplify/auth' (module has no exports)"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Pour le réinstaller à la main, désinstallez-le :
+    ```sh
+   npm uninstall aws-amplify
+   ```
 
-### Analyzing the Bundle Size
+Puis réinstallez le :
+    ```sh
+   npm install aws-amplify@6.0.16
+   ```
+3. Testez la commande amplify : 
+    ```sh
+   amplify -v
+   ```
+   Normalement vous devriez voir la version amplify s'afficher.
+   Sur Windows : Si ce n'est pas le cas, et que vous avez une erreur vous indiquant que la commande amplify est inconnue, il se peut que amplify soit bloqué par Windows. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   Ouvrez le Powershell Windows et autorisez les scripts 
+    ```sh
+   Set-ExecutionPolicy RemoteSigned
+   ```
+4. 
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Le projet est installé, bravo !**
 
-### Advanced Configuration
+<p align="right">(<a href="#readme-top">revenir en haut</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Lancement
 
-### `npm run build` fails to minify
+La dernière étape est de lancer le projet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Lancez le projet React
+   ```sh
+   npm start
+   ```
+
+Après quelques dizaines de secondes, vous devriez voir la magnifique page avec un formulaire de connexion sur le port localhost:3000.
+
+
+<p align="right">(<a href="#readme-top">retour en haut</a>)</p>
+
+
+
+## Contact
+
+Si vous avez une question contactez-moi sans hésiter sur [mon LinkedIn](https://www.linkedin.com/in/ronan-scotet-concepteur-web/) - ou par mail **ronan@reltim.com**
+
+Lien du projet: [https://github.com/domov44/gestion-de-taches](https://github.com/domov44/gestion-de-taches)
+
+<p align="right">(<a href="#readme-top">revenir en haut</a>)</p>
