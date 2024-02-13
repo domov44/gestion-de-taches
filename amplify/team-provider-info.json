@@ -47,7 +47,7 @@
       "function": {
         "gestiondetachesf470b91b": {
           "deploymentBucketName": "amplify-gestiondetaches-dev-122242-deployment",
-          "s3Key": "amplify-builds/gestiondetachesf470b91b-64747866447462412b37-build.zip"
+          "s3Key": "amplify-builds/gestiondetachesf470b91b-6e2f64506e4166516c55-build.zip"
         }
       },
       "api": {
@@ -80,13 +80,6 @@
       },
       "api": {
         "apireltim": {}
-      }
-    }
-  },
-  "fabc": {
-    "categories": {
-      "function": {
-        "gestiondetachesf470b91b": {}
       }
     }
   }
