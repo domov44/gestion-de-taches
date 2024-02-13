@@ -44,10 +44,6 @@ Pour commencer le projet vous pouvez suivre les instructions qui vont suivre.
 
 Pour commencer vous avez besoin d'installer le projet c'est assez simple.
 
-2. Vous devez avoir un compte AWS, si ce n'est pas le cas créez le via cette url
-   ```sh
-   https://aws.amazon.com/
-
 1. Clonez le repo git
    ```sh
    git clone https://github.com/domov44/gestion-de-taches
@@ -69,7 +65,7 @@ Puis réinstallez le :
     ```sh
    npm install aws-amplify@6.0.16
    ```
-3. Testez la commande amplify : 
+4. Testez la commande amplify : 
     ```sh
    amplify -v
    ```
@@ -80,7 +76,34 @@ Puis réinstallez le :
     ```sh
    Set-ExecutionPolicy RemoteSigned
    ```
-4. 
+5. Maintenant vous devez configurez AWS
+   ```sh
+   amplify configure
+    ```
+
+6. Cette commande vous ouvre une page, créez votre compte et retournez sur votre IDE et faites entrée et choisissez une région, ici eu-west-3.
+
+7. Ensuite 2 pages s'ouvre, la page de documentation et la page pour créer un user au sein de AWS, suivez la documentation pour créer le user (notez bien votre acces key et votre secret access key vous allez en avoir besoin).
+
+8. Une fois vos access key rentrées, choisissez un nom de user local
+
+9. Maintenant que le user est setup localement, initiez le projet amplify 
+   ```sh
+   amplify init
+    ```
+
+3. Maintenant vous devez créer une accesskey, qui vous servira à connecter votre IDE à votre compte AWS Amplify.
+<ul>
+    <li>Pour se faire allez sur le profil créé, puis cliquez sur "Create acces key"</li>
+    <li>Cochez CLI, puis validez</li>
+    <li>Ensuite conservez avec soins et sécurité vos 2 acceskey vous allez en avoir besoin.</li>
+</ul>
+
+4. L'étape suivante est de créer l'application et l'environnement.
+<ul>
+    <li>Create app depuis la page d'accueil de aws-amplify, choisissez le nom que vous voulez.</li>
+    <li>Une fois votre app créée, cliquez dessus pour vous rendre dans ses paramètres, allez dans hosting environnements puis connectez votre github en autorisant la connexion.</li>
+</ul>
 
 
 **Le projet est installé, bravo !**
