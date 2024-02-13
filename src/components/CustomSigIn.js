@@ -1,70 +1,66 @@
-// CustomSignIn.js
-import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {signIn, getCurrentUser, fetchUserAttributes} from 'aws-amplify/auth';
-import {useUser} from '../hooks/UserContext';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { signIn, confirmSignIn, resetPassword } from 'aws-amplify/auth'; 
+
+import { useUser } from '../hooks/UserContext';
 import Form from './Form';
 import InputText from './InputText';
 import Button from './Button';
 
 function CustomSignIn() {
-    const {login} = useUser();
+    const { login, refreshUser } = useUser();
     const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [showResetPasswordForm, setShowResetPasswordForm] = useState(false);
 
     const handleSignIn = async () => {
         try {
-            const {isSignedIn, signInStep} = await signIn({username, password});
-            console.log('Réponse de l\'API après connexion :', {isSignedIn, signInStep});
-
+            const { isSignedIn, nextStep } = await signIn({ username, password });
+    
+            console.log('Réponse de l\'API après connexion :', { isSignedIn, nextStep });
+    
+            if (!isSignedIn && nextStep && nextStep.signInStep === 'CONFIRM_SIGN_IN_WITH_NEW_PASSWORD_REQUIRED') {
+                setShowResetPasswordForm(true);
+                return;
+            }
+    
             if (isSignedIn) {
                 console.log('Connexion réussie !');
-
-                // Appel de la fonction pour récupérer les détails de l'utilisateur actuellement authentifié
-                await currentAuthenticatedUser();
-
-                // Met à jour l'état de connexion en appelant la fonction du contexte utilisateur
                 login();
+                await refreshUser(); // Mettre à jour les informations de l'utilisateur
                 navigate('/');
             } else {
-                console.log('Étape de connexion inconnue ou non définie.');
+                console.log('La connexion a échoué.');
             }
         } catch (error) {
             console.log('Erreur lors de la connexion :', error);
         }
     };
-
-    async function currentAuthenticatedUser() {
-        try {
-            const {username, userId, signInDetails} = await getCurrentUser();
-            console.log(`Nom d'utilisateur : ${username}`);
-            // Récupérer les attributs de l'utilisateur, y compris l'email
-            const userAttributes = await fetchUserAttributes();
-            // Vous pouvez maintenant accéder aux attributs de l'utilisateur directement
-            const userEmail = userAttributes.email;
-            const userNumber = userAttributes.phone_number;
-
-            console.log(`Email d'utilisateur : ${userEmail}`);
-            console.log(`Numéro d'utilisateur : ${userNumber}`);
-            console.log(`ID utilisateur : ${userId}`);
-            console.log(`Détails de la connexion :`, signInDetails);
-        } catch (err) {
-            console.log(err);
-        }
-    }
+    
+    
 
     return (
-      <Form>
-
-          <h1>Connexion</h1>
-          <InputText type={'text'} label={'Nom d\'utilisateur'} value={username}
-                     onChange={(e) => setUsername(e.target.value)} required/>
-          <InputText type={'password'} label={'Mot de passe'} value={password}
-                     onChange={(e) => setPassword(e.target.value)} required/>
-          <Button type="button" onClick={handleSignIn}>Se connecter</Button>
-      </Form>
+        <Form>
+            <h1>{showResetPasswordForm ? 'Réinitialiser le mot de passe' : 'Connexion'}</h1>
+            {showResetPasswordForm ? (
+                <>
+                    <InputText type={'password'} label={'Nouveau mot de passe'} value={newPassword}
+                            onChange={(e) => setNewPassword(e.target.value)} required/>
+                    <Button type="button">Modifier le mot de passe</Button>
+                </>
+            ) : (
+                <>
+                    <InputText type={'text'} label={'Nom d\'utilisateur'} value={username}
+                            onChange={(e) => setUsername(e.target.value)} required/>
+                    <InputText type={'password'} label={'Mot de passe'} value={password}
+                            onChange={(e) => setPassword(e.target.value)} required/>
+                    <Button type="button" onClick={handleSignIn}>Se connecter</Button>
+                </>
+            )}
+        </Form>
     );
 }
 
